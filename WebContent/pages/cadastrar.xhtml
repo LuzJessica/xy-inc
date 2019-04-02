@@ -11,24 +11,31 @@
 		<ui:include src="/includes/menuPrincipal.xhtml" />
 	</ui:define>
 
+
 	<ui:define name="conteudo">
-		<h:form>
-			<h:panelGrid>
+		<h:form id="formCadastrar">
+			<h:panelGrid id="panelNovoCadastro">
 				<p:outputLabel value="Nome do Ponto: " />
-				<p:inputText size="30" maxlength="50" />
+				<p:inputText size="30" maxlength="50"
+					value="#{MBPonto.ponto.nome_ponto}" />
 				<p:outputLabel value="Coordenada X: " />
-				<p:inputText size="30" maxlength="50" />
+				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.co_X}" />
 				<p:outputLabel value="Coordenada Y: " />
-				<p:inputText size="30" maxlength="50" />
-				<p:commandButton value="Cadastrar" onclick=""></p:commandButton>
+				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.co_Y}" />
+				<p:commandButton value="Cadastrar"
+					actionListener="#{MBPonto.novoPonto()}"
+					oncomplete="PF('dlgPontoNovo').show();"
+					></p:commandButton>
 			</h:panelGrid>
 		</h:form>
 
 		<p:dialog widgetVar="dlgPontoNovo" closable="false" draggable="false"
 			resizable="false" modal="true" appendTo="@(body)" header="Novo Ponto">
 			<h:form>
-				<p:outputLabel value="Ponto Cadastrado com sucesso!"></p:outputLabel>
-				<p:commandButton value="OK"></p:commandButton>
+				<h:panelGrid>
+					<p:outputLabel value="Ponto Cadastrado com sucesso!" />
+					<p:commandButton value="OK" oncomplete="PF('dlgPontoNovo').hide();"></p:commandButton>
+				</h:panelGrid>
 			</h:form>
 		</p:dialog>
 

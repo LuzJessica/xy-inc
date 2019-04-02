@@ -15,6 +15,7 @@ import br.com.xyinc.domain.Pontos;
 @ViewScoped
 public class PontoBean {
 	private ListDataModel<Pontos> pontos;
+	private Pontos ponto;
 
 	public ListDataModel<Pontos> getPontos() {
 		return pontos;
@@ -25,8 +26,19 @@ public class PontoBean {
 	}
 	
 	
+	
+	
+	public Pontos getPonto() {
+		return ponto;
+	}
+
+	public void setPonto(Pontos ponto) {
+		this.ponto = ponto;
+	}
+
 	@PostConstruct
 	public void prepararPesquisa() {
+		ponto = new Pontos();
 		try {
 			PontoDAO pDao = new PontoDAO();
 			ArrayList<Pontos> p = pDao.listar();
@@ -34,6 +46,18 @@ public class PontoBean {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	public void novoPonto() {
+		try {
+			PontoDAO pDAO = new PontoDAO();
+			pDAO.cadastrar(ponto);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 }
