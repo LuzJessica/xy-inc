@@ -12,12 +12,16 @@
 	</ui:define>
 
 	<ui:define name="conteudo">
-		<p:dataTable emptyMessage="Nenhum ponto encontrado.">
+		<p:dataTable emptyMessage="Nenhum ponto encontrado."
+			value="#{MBPonto.pontos}" var="ponto">
 			<p:column headerText="Nome do Ponto">
+				<h:outputText value="#{ponto.nome_ponto}" />
 			</p:column>
 			<p:column headerText="Coordenada X">
+				<h:outputText value="#{ponto.co_X}" />
 			</p:column>
 			<p:column headerText="Coordenada Y">
+				<h:outputText value="#{ponto.co_Y}" />
 			</p:column>
 		</p:dataTable>
 	</ui:define>

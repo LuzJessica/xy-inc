@@ -57,7 +57,7 @@ public class PontoDAO {
 
 	public ArrayList<Pontos> listar() throws SQLException {
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * ");
+		sql.append("SELECT idPonto, nome_ponto, co_x, co_y ");
 		sql.append("FROM pontos_de_interesse ");
 		sql.append("ORDER BY idPonto ASC");
 
@@ -169,13 +169,15 @@ public class PontoDAO {
 		System.out.println("Não foi possivel listar!");
 		e.printStackTrace(); 
 		}
+		*/
 
-		/*
-		 * TESTE LISTAR GERAL try { ArrayList<Pontos> lista = pDAO.listar(); for (Pontos
-		 * ponto : lista) { System.out.println(ponto); }
-		 * 
-		 * } catch (SQLException e) { System.out.println("Não foi possivel listar!");
-		 * e.printStackTrace(); // TODO: handle exception }
-		 */
+		
+		  try { ArrayList<Pontos> lista = pDAO.listar(); for (Pontos
+		  ponto : lista) { System.out.println(ponto); }
+		  
+		  } catch (SQLException e) { System.out.println("Não foi possivel listar!");
+		  e.printStackTrace(); // TODO: handle exception }
+		 
+	}
 	}
 }
