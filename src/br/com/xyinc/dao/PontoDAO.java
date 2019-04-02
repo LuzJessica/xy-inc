@@ -36,6 +36,22 @@ public class PontoDAO {
 		ps.setLong(1, ponto.getIdPonto());
 		ps.executeUpdate();
 	}
+	
+	public void atualizar (Pontos ponto) throws SQLException {
+		StringBuilder sql = new StringBuilder();
+		sql.append("UPDATE pontos_de_interesse ");
+		sql.append("SET nome_ponto = ?, co_x = ?, co_y = ?");
+		sql.append("WHERE idPonto = ?");
+		
+		Connection conexao = ConexaoFactory.conectar();
+		
+		PreparedStatement ps = conexao.prepareStatement(sql.toString());
+		ps.setString(1, ponto.getNome_ponto());
+		ps.setString(2, ponto.getCo_X());
+		ps.setString(3, ponto.getCo_Y());
+		ps.setLong(4, ponto.getIdPonto());
+		ps.executeUpdate();
+	}
 
 	public static void main(String[] args) {
 
@@ -66,6 +82,23 @@ public class PontoDAO {
 		 * } // TODO: handle exception }
 		 * 
 		 */
+		
+		//TESTE ATUALIZAÇÃO
+		
+		p.setIdPonto(1L);
+		p.setNome_ponto("Posto");
+		p.setCo_X("31");
+		p.setCo_Y("18");
+		
+		try{
+			pDAO.atualizar(p);
+			System.out.println("Ponto atualizado com sucesso!");
+			
+		}catch(SQLException e) {
+			System.out.println("Ponto não pode ser atualizado!");
+			e.printStackTrace();
+		}
+		
 
 	}
 }
