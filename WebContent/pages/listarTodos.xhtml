@@ -18,6 +18,8 @@
 		var="ponto"
 		paginator="true"
 		rows="10">
+		
+		<f:facet name="header">Lista de todos os pontos encontrados na base</f:facet>
 			<p:column headerText="Nome do Ponto" sortBy="#{ponto.nome_ponto}" >
 				<h:outputText value="#{ponto.nome_ponto}" />
 			</p:column>
@@ -28,6 +30,8 @@
 				<h:outputText value="#{ponto.co_Y}" />
 			</p:column>
 		</p:dataTable>
+		
+		
 	</ui:define>
 
 </ui:composition>

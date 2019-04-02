@@ -8,10 +8,30 @@
 	template="/templates/systemModel.xhtml">
 
 	<ui:define name="menu">
-	<ui:include src="/includes/menuPrincipal.xhtml"/>
+		<ui:include src="/includes/menuPrincipal.xhtml" />
 	</ui:define>
 
 	<ui:define name="conteudo">
+		<h:form>
+			<h:panelGrid>
+				<p:outputLabel value="Nome do Ponto: " />
+				<p:inputText size="30" maxlength="50" />
+				<p:outputLabel value="Coordenada X: " />
+				<p:inputText size="30" maxlength="50" />
+				<p:outputLabel value="Coordenada Y: " />
+				<p:inputText size="30" maxlength="50" />
+				<p:commandButton value="Cadastrar" onclick=""></p:commandButton>
+			</h:panelGrid>
+		</h:form>
+
+		<p:dialog widgetVar="dlgPontoNovo" closable="false" draggable="false"
+			resizable="false" modal="true" appendTo="@(body)" header="Novo Ponto">
+			<h:form>
+				<p:outputLabel value="Ponto Cadastrado com sucesso!"></p:outputLabel>
+				<p:commandButton value="OK"></p:commandButton>
+			</h:form>
+		</p:dialog>
+
 	</ui:define>
 
 </ui:composition>
