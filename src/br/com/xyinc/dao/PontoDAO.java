@@ -156,7 +156,7 @@ public class PontoDAO {
 		 */
 
 		
-		//  TESTE LISTAR POR PROXIMIDADE
+		/*  TESTE LISTAR POR PROXIMIDADE
 		  
 		  p.setCo_X_ref(20L);
 		  p.setCo_Y_ref(10L);
