@@ -11,16 +11,20 @@
 		<ui:include src="/includes/menuPrincipal.xhtml" />
 	</ui:define>
 
-	<ui:define name="conteudo">
-		<p:dataTable emptyMessage="Nenhum ponto encontrado."
-			value="#{MBPonto.pontos}" var="ponto">
-			<p:column headerText="Nome do Ponto">
+	<ui:define name="conteudo"	>
+		<p:dataTable 
+		emptyMessage="Nenhum ponto encontrado."
+		value="#{MBPonto.pontos}" 
+		var="ponto"
+		paginator="true"
+		rows="10">
+			<p:column headerText="Nome do Ponto" sortBy="#{ponto.nome_ponto}" >
 				<h:outputText value="#{ponto.nome_ponto}" />
 			</p:column>
-			<p:column headerText="Coordenada X">
+			<p:column headerText="Coordenada X" sortBy="#{ponto.co_X}" > 
 				<h:outputText value="#{ponto.co_X}" />
 			</p:column>
-			<p:column headerText="Coordenada Y">
+			<p:column headerText="Coordenada Y" sortBy="#{ponto.co_Y}" >
 				<h:outputText value="#{ponto.co_Y}" />
 			</p:column>
 		</p:dataTable>
