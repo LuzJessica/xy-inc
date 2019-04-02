@@ -8,7 +8,7 @@ public class ConexaoFactory {
 	
 	private static final String USUARIO = "root";
 	private static final String SENHA = "root";
-	private static String URL = "jdbc:mysql://localhost:3306/orica";
+	private static String URL = "jdbc:mysql://localhost:3306/xyinc";
 	
 	public static Connection conectar() throws SQLException {
 		Connection conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
