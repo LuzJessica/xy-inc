@@ -32,5 +32,11 @@ public class Pontos {
 	}
 	
 	
+	@Override
+	public String toString() {
+		String saida = "Código: " + idPonto + " | Nome do Ponto:  " + nome_ponto + " | Coordenada X:  " + co_X + " | Coordenada Y:  " + co_Y ;
+		return saida;
+	}
+	
 
 }

@@ -2,7 +2,9 @@ package br.com.xyinc.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.xyinc.domain.Pontos;
 import br.com.xyinc.factory.ConexaoFactory;
@@ -52,6 +54,33 @@ public class PontoDAO {
 		ps.setLong(4, ponto.getIdPonto());
 		ps.executeUpdate();
 	}
+	
+	public ArrayList<Pontos> listar(Pontos ponto) throws SQLException{
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT idPonto, nome_ponto, co_x, co_y ");
+		sql.append("FROM pontos_de_interesse ");
+		sql.append("WHERE co_x LIKE ?" );
+		
+		Connection conexao = ConexaoFactory.conectar();
+		
+		PreparedStatement ps = conexao.prepareStatement(sql.toString());
+		ps.setString(1, ponto.getCo_X());
+		
+		ResultSet rs = ps.executeQuery();
+		ArrayList<Pontos> lista = new ArrayList<Pontos>();
+		
+		while(rs.next()) {
+			Pontos p = new Pontos();
+			p.setIdPonto(rs.getLong("idPonto"));
+			p.setNome_ponto(rs.getString("nome_ponto"));
+			p.setCo_X(rs.getString("co_x"));
+			p.setCo_Y(rs.getString("co_y"));
+			
+			lista.add(p);
+		}
+		return lista;
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -83,7 +112,7 @@ public class PontoDAO {
 		 * 
 		 */
 		
-		//TESTE ATUALIZAÇÃO
+		/* TESTE ATUALIZAÇÃO
 		
 		p.setIdPonto(1L);
 		p.setNome_ponto("Posto");
@@ -99,6 +128,22 @@ public class PontoDAO {
 			e.printStackTrace();
 		}
 		
+		*/
+		
+		//TESTE LISTAR
+		
+		p.setCo_X("31");
+		try {
+			ArrayList<Pontos>lista = pDAO.listar(p);
+			for(Pontos ponto : lista) {
+			System.out.println(ponto);
+			}
+			
+		}catch (SQLException e) {
+			System.out.println("Não foi possivel listar!");
+			e.printStackTrace();
+			// TODO: handle exception
+		}
 
 	}
 }
