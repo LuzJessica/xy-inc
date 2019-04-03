@@ -42,7 +42,7 @@ public class PontoDAO {
 	public void atualizar(Pontos ponto) throws SQLException {
 		StringBuilder sql = new StringBuilder();
 		sql.append("UPDATE pontos_de_interesse ");
-		sql.append("SET nome_ponto = ?, co_x = ?, co_y = ?");
+		sql.append("SET nome_ponto = ?, co_x = ?, co_y = ? ");
 		sql.append("WHERE idPonto = ?");
 
 		Connection conexao = ConexaoFactory.conectar();
@@ -143,17 +143,23 @@ public class PontoDAO {
 		 * 
 		 */
 
-		/*
-		 * TESTE ATUALIZAÇÃO
-		 * 
-		 * p.setIdPonto(1L); p.setNome_ponto("Posto"); p.setCo_X("31"); p.setCo_Y("18");
-		 * 
-		 * try{ pDAO.atualizar(p); System.out.println("Ponto atualizado com sucesso!");
-		 * 
-		 * }catch(SQLException e) {
-		 * System.out.println("Ponto não pode ser atualizado!"); e.printStackTrace(); }
-		 * 
-		 */
+		
+		  /*TESTE ATUALIZAÇÃO
+		  
+		   
+		   p.setNome_ponto("Posto"); 
+		   p.setCo_X(21L); 
+		   p.setCo_Y(18L);
+		   p.setIdPonto(76L);
+		  
+		  try{ 
+		  pDAO.atualizar(p); 
+		  System.out.println("Ponto atualizado com sucesso!");
+		 
+		  }catch(SQLException e) {
+		  System.out.println("Ponto não pode ser atualizado!"); e.printStackTrace(); }
+		  
+		 
 
 		
 		/*  TESTE LISTAR POR PROXIMIDADE
@@ -171,13 +177,14 @@ public class PontoDAO {
 		}
 		*/
 
-		
+		/* Teste Listar 
 		  try { ArrayList<Pontos> lista = pDAO.listar(); for (Pontos
 		  ponto : lista) { System.out.println(ponto); }
 		  
 		  } catch (SQLException e) { System.out.println("Não foi possivel listar!");
 		  e.printStackTrace(); // TODO: handle exception }
-		 
+		
 	}
+	 */
 	}
 }
