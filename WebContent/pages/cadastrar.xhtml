@@ -24,21 +24,13 @@
 				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.co_Y}" />
 				<p:commandButton value="Cadastrar"
 					actionListener="#{MBPonto.novoPonto()}"
-					oncomplete="PF('dlgPontoNovo').show();"
+					update=":msgGlobal"
+					
 					></p:commandButton>
 			</h:panelGrid>
 		</h:form>
 
-		<p:dialog widgetVar="dlgPontoNovo" closable="false" draggable="false"
-			resizable="false" modal="true" appendTo="@(body)" header="Novo Ponto">
-			<h:form>
-				<h:panelGrid>
-					<p:outputLabel value="Ponto Cadastrado com sucesso!" />
-					<p:commandButton value="OK" oncomplete="PF('dlgPontoNovo').hide();"></p:commandButton>
-				</h:panelGrid>
-			</h:form>
-		</p:dialog>
-
+		
 	</ui:define>
 
 </ui:composition>

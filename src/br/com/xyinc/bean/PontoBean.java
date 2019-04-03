@@ -10,6 +10,7 @@ import javax.faces.model.ListDataModel;
 
 import br.com.xyinc.dao.PontoDAO;
 import br.com.xyinc.domain.Pontos;
+import br.com.xyinc.util.JSFUtil;
 
 @ManagedBean(name = "MBPonto")
 @ViewScoped
@@ -45,6 +46,7 @@ public class PontoBean {
 			pontos = new ListDataModel<Pontos>(p);
 		} catch (SQLException e) {
 			e.printStackTrace();
+			JSFUtil.msgErro(e.getMessage());
 		}
 	}
 	
@@ -53,8 +55,10 @@ public class PontoBean {
 		try {
 			PontoDAO pDAO = new PontoDAO();
 			pDAO.cadastrar(ponto);
+			JSFUtil.msgSucesso("Ponto cadastrado com sucesso!");
 		}catch(SQLException e){
 			e.printStackTrace();
+			JSFUtil.msgErro("Ponto não pode ser cadastrado: " + e.getMessage());
 		}
 		
 		
