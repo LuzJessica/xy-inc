@@ -79,7 +79,7 @@ public class PontoBean {
 			JSFUtil.msgSucesso("Ponto cadastrado com sucesso!");
 		}catch(SQLException e){
 			e.printStackTrace();
-			JSFUtil.msgErro("Ponto não pode ser cadastrado: " + e.getMessage());
+			//JSFUtil.msgErro("Ponto não pode ser cadastrado: " + e.getMessage());
 		}
 		
 		

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:h="http://java.sun.com/jsf/html"
 	xmlns="http://www.w3.org/1999/xhtml"
@@ -17,12 +17,12 @@
 			<h:panelGrid>
 				<p:outputLabel value="Coordenada de Referencia X: " />
 				<p:inputText size="30" maxlength="50"
-					value="#{MBPonto.ponto.co_X_ref}" />
+					value="#{MBPonto.ponto.co_X_ref}" required="true" requiredMessage="A Coordenada X de referência é obrigatória!"/>
 				<p:outputLabel value="Coordenada de Referencia Y: " />
 				<p:inputText size="30" maxlength="50"
-					value="#{MBPonto.ponto.co_Y_ref}" />
-				<p:outputLabel value="Distancia M�xima: " />
-				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.dMax}" />
+					value="#{MBPonto.ponto.co_Y_ref}" required="true" requiredMessage="A Coordenada Y de referência é obrigatória!"/>
+				<p:outputLabel value="Distancia Máxima: " />
+				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.dMax}" required="true" requiredMessage="A Distância Máxima é obrigatória!"/>
 				<p:commandButton value="Listar"
 					actionListener="#{MBPonto.listarPorProximidade()}"
 					update=":frmTable:dtbProximidade :msgGlobal"></p:commandButton>
@@ -33,7 +33,7 @@
 			<p:dataTable id="dtbProximidade" emptyMessage="Nenhum ponto encontrado."
 				value="#{MBPonto.pontosProximidade}" var="ponto" paginator="true" rows="10">
 
-				<f:facet name="header">Lista de todos os pontos encontrados na base segundo par�metos informados!</f:facet>
+				<f:facet name="header">Lista de todos os pontos encontrados na base segundo parâmetos informados!</f:facet>
 				<p:column headerText="Nome do Ponto" sortBy="#{ponto.nome_ponto}">
 					<h:outputText value="#{ponto.nome_ponto}" />
 				</p:column>
