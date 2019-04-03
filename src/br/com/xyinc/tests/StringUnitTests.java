@@ -23,7 +23,7 @@ public class StringUnitTests {
 		
 		String USUARIO = "root";
 		String SENHA = "root";
-		String URL = "jdbc:mysql://localhost:3306/xyinc";
+		String URL = "jdbc:mysql://localhost:3306/xy-inc";
 		Connection conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
 		conexao = ConexaoFactory.conectar();
 		assertTrue(true);
