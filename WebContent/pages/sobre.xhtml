@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/systemModel.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menuPrincipal.xhtml" />
+	</ui:define>
+
+
+
+	<ui:define name="conteudo">
+		<h:panelGroup>
+			<p>
+				Esta aplicação foi desenvolvida como parte do processo seletivo da
+				empresa <b>Zup IT Innovation</b>.
+			</p>
+			<h3>Sobre a aplicação:</h3>
+			<p>Para o desenvolvimento deste sistema foram utilizadas as
+				seguintes tecnologias:</p>
+			<ol>
+				<li>Eclipse IDE</li>
+				<li>Apache TOMCat 7.0</li>
+				<li>Banco de Dados MySql</li>
+				<li>JSF 2.2</li>
+				<li>Primefaces</li>
+				<li>JUnit</li>
+			</ol>
+		</h:panelGroup>
+
+		<h:panelGroup>
+			<h3>Sobre a desenvolvedora:</h3>
+			<h:graphicImage id="imgDesenvolvedora" library="images"
+				name="download.png" />
+			<h:form id="fmrDesenvolvedora">
+
+				<p>Jéssica Cristina Santos Luz, 26, Bacharela em Engenharia da
+					Computação desde 2016 pelo Instituto Nacional de Telecomunicações - INATEL.</p>
+				<p>Sua primeira experiência com desenvolvimento foi em sua
+					propria faculdade, onde atuou como desenvolvedora de aplicações e
+					jogos para Windows Phone utilizando a linguagem C#.</p>
+				<p>Após finalizar sua formação, conseguiu sua primeira
+					oportunidade para atuar com desenvolvimento Web utilizando JAVA na
+					empresa <b>Liax Tecnologia da Informação</b>, onde teve contato com
+					tecnologias como Spring MVC, Hibernate, Weblogic, Maven, JPA, dentre outras.</p>
+				<p>Após 1 ano e 2 meses de experiência, encontrou uma nova
+					oportunidade que significaria novos desafios e então iniciou na
+					empresa <b>STIT Tecnologia</b>, onde atuou como Analista de Requisitos
+					durante 6 meses.</p>
+			</h:form>
+		</h:panelGroup>
+
+
+
+
+	</ui:define>
+
+</ui:composition>

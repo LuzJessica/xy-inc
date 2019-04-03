@@ -14,5 +14,26 @@ body {
 }
 
 .ui-widget, .ui-widget .ui-widget {
-	font-size: 12px !important;
+	font-size: 16px !important;
 }
+
+p { 
+	margin-left: 10px;
+	font-size: 14px !important;}
+
+h3{
+	margin-left: 10px;
+}	
+	
+#formCadastrar, #frmProximidade, #frmTable, #imgDesenvolvedora{
+	margin-left: 10px;
+}
+
+#imgDesenvolvedora{
+	float: left;
+}
+	
+}
+
+
+

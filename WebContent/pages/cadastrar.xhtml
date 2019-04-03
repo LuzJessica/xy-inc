@@ -13,6 +13,7 @@
 
 
 	<ui:define name="conteudo">
+	<h3>Preencha os campos abaixo para cadastrar um novo ponto: </h3>
 		<h:form id="formCadastrar" >
 			<h:panelGrid id="panelNovoCadastro">
 				<p:outputLabel value="Nome do Ponto: " />
@@ -22,7 +23,7 @@
 				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.co_X}" required="true" requiredMessage="A coordenada X é obrigatória"/>
 				<p:outputLabel value="Coordenada Y: " />
 				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.co_Y}" required="true" requiredMessage="A coordenada Y é obrigatória"/>
-				<p:commandButton value="Cadastrar"
+				<p:commandButton id="btnCadastrar" value="Cadastrar"
 					actionListener="#{MBPonto.novoPonto()}"
 					update=":msgGlobal"
 					

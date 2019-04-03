@@ -19,12 +19,11 @@ public class StringUnitTests {
 	@Test
 	public void sucessoConexao() throws SQLException {
 		
-		Connection conectou;
 		String USUARIO = "root";
 		String SENHA = "root";
 		String URL = "jdbc:mysql://localhost:3306/xyinc";
 		Connection conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
-		conectou = ConexaoFactory.conectar();
+		conexao = ConexaoFactory.conectar();
 		assertTrue(true);
 	}
 	
