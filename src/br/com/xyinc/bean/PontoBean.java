@@ -16,6 +16,7 @@ import br.com.xyinc.util.JSFUtil;
 @ViewScoped
 public class PontoBean {
 	private ListDataModel<Pontos> pontos;
+	private ListDataModel<Pontos> pontosProximidade;
 	private Pontos ponto;
 
 	public ListDataModel<Pontos> getPontos() {
@@ -36,6 +37,16 @@ public class PontoBean {
 	public void setPonto(Pontos ponto) {
 		this.ponto = ponto;
 	}
+	
+	
+
+	public ListDataModel<Pontos> getPontosProximidade() {
+		return pontosProximidade;
+	}
+
+	public void setPontosProximidade(ListDataModel<Pontos> pontosProximidade) {
+		this.pontosProximidade = pontosProximidade;
+	}
 
 	@PostConstruct
 	public void prepararPesquisa() {
@@ -50,6 +61,16 @@ public class PontoBean {
 		}
 	}
 	
+	public void listarPorProximidade() {
+		try {
+			PontoDAO pDao = new PontoDAO();
+			ArrayList<Pontos> p = pDao.listarPorProximidade(ponto);
+			pontosProximidade = new ListDataModel<Pontos>(p);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			JSFUtil.msgErro(e.getMessage());
+		}
+	}
 	
 	public void novoPonto() {
 		try {

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/templates/systemModel.xhtml">
+
+	<ui:define name="menu">
+		<ui:include src="/includes/menuPrincipal.xhtml" />
+	</ui:define>
+
+
+	<ui:define name="conteudo">
+		<h:form>
+			<h:panelGrid>
+				<p:outputLabel value="Coordenada de Referencia X: " />
+				<p:inputText size="30" maxlength="50"
+					value="#{MBPonto.ponto.co_X_ref}" />
+				<p:outputLabel value="Coordenada de Referencia Y: " />
+				<p:inputText size="30" maxlength="50"
+					value="#{MBPonto.ponto.co_Y_ref}" />
+				<p:outputLabel value="Distancia Máxima: " />
+				<p:inputText size="30" maxlength="50" value="#{MBPonto.ponto.dMax}" />
+				<p:commandButton value="Listar"
+					actionListener="#{MBPonto.listarPorProximidade()}"
+					update=":frmTable:dtbProximidade :msgGlobal"></p:commandButton>
+			</h:panelGrid>
+		</h:form>
+
+		<h:form id="frmTable">
+			<p:dataTable id="dtbProximidade" emptyMessage="Nenhum ponto encontrado."
+				value="#{MBPonto.pontosProximidade}" var="ponto" paginator="true" rows="10">
+
+				<f:facet name="header">Lista de todos os pontos encontrados na base segundo parâmetos informados!</f:facet>
+				<p:column headerText="Nome do Ponto" sortBy="#{ponto.nome_ponto}">
+					<h:outputText value="#{ponto.nome_ponto}" />
+				</p:column>
+				<p:column headerText="Coordenada X" sortBy="#{ponto.co_X}">
+					<h:outputText value="#{ponto.co_X}" />
+				</p:column>
+				<p:column headerText="Coordenada Y" sortBy="#{ponto.co_Y}">
+					<h:outputText value="#{ponto.co_Y}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+
+	</ui:define>
+
+</ui:composition>
