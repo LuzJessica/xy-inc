@@ -8,7 +8,7 @@ public class ConexaoFactory {
 	
 	private static final String USUARIO = "root";
 	private static final String SENHA = "root";
-	private static String URL = "jdbc:mysql://localhost:3306/xyinc";
+	private static String URL = "jdbc:mysql://localhost:3306/xy-inc";
 	
 	public static Connection conectar() throws SQLException {
 		DriverManager.registerDriver(new com.mysql.jdbc.Driver());
@@ -21,7 +21,7 @@ public class ConexaoFactory {
 			ConexaoFactory.conectar();
 			System.out.println("Conectado com BD com sucesso");
 		}catch(SQLException e) {
-			System.out.println("Não foi possivel conectar ao BD!");
+			System.out.println("NÃ£o foi possivel conectar ao BD!");
 			e.printStackTrace();
 		}
 	}
